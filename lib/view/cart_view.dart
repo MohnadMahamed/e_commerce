@@ -1,6 +1,7 @@
 import 'package:e_commerce/core/theme/app_colors.dart';
 import 'package:e_commerce/core/view_model/app_theme.dart';
 import 'package:e_commerce/core/view_model/cart_view_model.dart';
+import 'package:e_commerce/core/view_model/payment_view_model.dart';
 import 'package:e_commerce/view/checkout/checkout_screen.dart';
 import 'package:e_commerce/view/details_view.dart';
 import 'package:e_commerce/view/widgets/custome_button.dart';
@@ -127,22 +128,25 @@ class CartView extends StatelessWidget {
         child: Scaffold(
           // key: _scaffoldKey,
           body: controller.cartProductModel.isEmpty
-              ? Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SvgPicture.asset(
-                      'assets/images/empty_cart.svg',
-                      width: 200.0,
-                      height: 200.0,
-                    ),
-                    const SizedBox(
-                      height: 40.0,
-                    ),
-                    CustomText(
-                      text: 'Cart Empty'.tr,
-                      fontSize: 25.0,
-                    ),
-                  ],
+              ? Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SvgPicture.asset(
+                        'assets/images/empty_cart.svg',
+                        width: 200.0,
+                        height: 200.0,
+                      ),
+                      const SizedBox(
+                        height: 40.0,
+                      ),
+                      CustomText(
+                        text: 'Cart Empty'.tr,
+                        fontSize: 25.0,
+                      ),
+                    ],
+                  ),
                 )
               : GetBuilder<AppThemeViewModel>(
                   init: AppThemeViewModel(),
@@ -418,10 +422,14 @@ class CartView extends StatelessWidget {
                               height: 100,
                               width: 170,
                               padding: const EdgeInsets.all(20.0),
-                              child: CustomeButton(
-                                  text: 'CHECKOUT'.tr,
-                                  onPressed: () {
-                                    Get.to(() => const CheckOutScreen());
+                              child: GetBuilder<PaymentViewModel>(
+                                  init: PaymentViewModel(),
+                                  builder: (paymentController) {
+                                    return CustomeButton(
+                                        text: 'CHECKOUT'.tr,
+                                        onPressed: () {
+                                          Get.to(() => const CheckOutScreen());
+                                        });
                                   })),
                         ],
                       ),

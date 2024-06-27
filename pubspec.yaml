@@ -49,13 +49,16 @@ dependencies:
   conditional_builder_null_safety: ^0.0.6
   fluttertoast: ^8.1.1
   get_storage: ^2.0.3
-  google_fonts: ^3.0.1
+  google_fonts: ^6.2.1
   flutter_colorpicker: ^1.0.3
   dotted_border: ^2.0.0+3
   image_picker: ^0.8.6
   firebase_storage: ^11.0.10
   uuid: ^3.0.7
   firebase_app_check: ^0.1.1+8
+  dio: ^5.4.3+1
+  webview_flutter: ^3.0.4
+  flutter_offline: ^3.0.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

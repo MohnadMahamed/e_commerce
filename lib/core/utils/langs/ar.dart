@@ -16,10 +16,10 @@ const Map<String, String> ar = {
   //// Control Page ////
   'Explore': 'الرئيسية',
   'Cart': 'التسوق',
-  'Account': 'شحصي',
+  'Account': 'شخصي',
 
   //// Home Page  ////
-  'Search you product': 'أبحث عن منتج',
+  'Search for a product': 'أبحث عن منتج',
   'Categories': 'الأصناف',
   'Best Selling': 'الأكثر مبيعا',
   'See all': 'مشاهدة الكل',

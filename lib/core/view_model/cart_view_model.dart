@@ -33,6 +33,7 @@ class CartViewModel extends GetxController {
     cartProductModel.remove(product);
     _totalPrice -= (double.parse(product.price!) * product.quantity!);
 
+    update();
     // await dbHelper.getAllProduct();
     _loading.value = false;
     update();

@@ -1,6 +1,7 @@
 import 'package:e_commerce/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 ThemeData lightTheme = ThemeData(
   visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -26,14 +27,14 @@ ThemeData lightTheme = ThemeData(
       unselectedItemColor: Colors.grey,
       backgroundColor: Colors.white70,
       elevation: 20.0),
-  // textTheme: TextTheme(
-  //   bodyText1: GoogleFonts.cairo(
-  //       fontSize: 18.0, fontWeight: FontWeight.w700, color: Colors.black54),
-  //   bodyText2: GoogleFonts.cairo(
-  //       fontSize: 20.0, fontWeight: FontWeight.w700, color: Colors.black87),
-  //   headline1: GoogleFonts.kanit(
-  //       fontSize: 30.0, fontWeight: FontWeight.bold, color: Colors.black),
-  //   headline3: GoogleFonts.kanit(
-  //       fontSize: 30.0, fontWeight: FontWeight.bold, color: Colors.black),
-  // ),
+  textTheme: TextTheme(
+    bodyLarge: GoogleFonts.cairo(
+        fontSize: 30.0, fontWeight: FontWeight.w700, color: Colors.black54),
+    bodyMedium: GoogleFonts.cairo(
+        fontSize: 18.0, fontWeight: FontWeight.w700, color: Colors.black87),
+    displayLarge: GoogleFonts.kanit(
+        fontSize: 30.0, fontWeight: FontWeight.bold, color: Colors.black),
+    displaySmall: GoogleFonts.kanit(
+        fontSize: 15.0, fontWeight: FontWeight.bold, color: Colors.black),
+  ),
 );

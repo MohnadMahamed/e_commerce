@@ -22,6 +22,7 @@ class CustomeStaticColorText extends StatelessWidget {
         maxLines: maxLines == 0 ? 2 : maxLines,
         overflow: TextOverflow.ellipsis,
         style: TextStyle(
+            // fontFamily: 'SourceSans',
             height: height,
             fontWeight: FontWeight.bold,
             fontSize: fontSize == 0 ? 16 : fontSize,

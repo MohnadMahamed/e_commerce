@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/service/database/dio_helper.dart';
 import 'package:e_commerce/core/theme/dark_theme.dart';
 import 'package:e_commerce/core/theme/light_theme.dart';
 import 'package:e_commerce/core/utils/langs/translation.dart';
@@ -18,6 +19,7 @@ void main() async {
   await Firebase.initializeApp();
   await CacheHelper.init();
   await GetStorage.init();
+  await DioHelper.initDio();
   // await FirebaseAppCheck.instance.activate();
 
   Get.put(CartViewModel());

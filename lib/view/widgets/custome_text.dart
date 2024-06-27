@@ -21,7 +21,10 @@ class CustomText extends StatelessWidget {
       overflow: TextOverflow.ellipsis,
       maxLines: maxLines == 1 ? 1 : maxLines,
       style: TextStyle(
-          height: height, fontWeight: FontWeight.bold, fontSize: fontSize),
+          // fontFamily: 'SourceSans',
+          height: height,
+          fontWeight: FontWeight.bold,
+          fontSize: fontSize),
     );
   }
 }

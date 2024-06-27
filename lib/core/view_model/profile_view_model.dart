@@ -44,7 +44,7 @@ class ProfileViewModel extends GetxController {
   }
 
   bool isLoading = false;
-  void updateUserData() async {
+  Future<void> updateUserData() async {
     isLoading = true;
 
     update();

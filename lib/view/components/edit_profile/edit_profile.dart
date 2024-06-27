@@ -92,10 +92,10 @@ class EditProfile extends StatelessWidget {
                               ),
                             ),
                             CircleAvatar(
-                              radius: 47.0,
+                              radius: 65.0,
                               child: Container(
-                                height: 90.0,
-                                width: 90.0,
+                                height: 120.0,
+                                width: 120.0,
                                 decoration: BoxDecoration(
                                     color: Colors.red,
                                     borderRadius: BorderRadius.circular(100.0),
@@ -172,7 +172,7 @@ class EditProfile extends StatelessWidget {
                                           appLanguageController.appLanguage ==
                                                   'en'
                                               ? 250
-                                              : 170,
+                                              : 230,
                                       child: Container(
                                         margin: const EdgeInsets.all(10),
                                         padding: const EdgeInsets.all(10),

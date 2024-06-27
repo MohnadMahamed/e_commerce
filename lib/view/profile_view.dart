@@ -23,7 +23,7 @@ class ProfileView extends StatelessWidget {
             : SafeArea(
                 child: Scaffold(
                     body: Container(
-                  padding: const EdgeInsets.only(top: 40.0),
+                  padding: const EdgeInsets.only(top: 30.0),
                   child: SingleChildScrollView(
                       child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -84,6 +84,7 @@ class ProfileView extends StatelessWidget {
                         height: 40.0,
                       ),
                       CustomeListTile(
+                          themeController: themeController,
                           text: 'Profile'.tr,
                           imagePath: themeController.isDark
                               ? 'assets/menue_icon/userDark.png'
@@ -93,24 +94,28 @@ class ProfileView extends StatelessWidget {
                           }),
 
                       CustomeListTile(
+                          themeController: themeController,
                           text: 'Shopping Address'.tr,
                           imagePath: themeController.isDark
                               ? 'assets/menue_icon/locationDark.png'
                               : 'assets/menue_icon/location.png',
                           onPressed: () {}),
                       CustomeListTile(
+                          themeController: themeController,
                           text: 'Order History'.tr,
                           imagePath: themeController.isDark
                               ? 'assets/menue_icon/historyDark.png'
                               : 'assets/menue_icon/history.png',
                           onPressed: () {}),
                       CustomeListTile(
+                          themeController: themeController,
                           text: 'Card'.tr,
                           imagePath: themeController.isDark
                               ? 'assets/menue_icon/cardDark.png'
                               : 'assets/menue_icon/card.png',
                           onPressed: () {}),
                       CustomeListTile(
+                          themeController: themeController,
                           text: 'Notification'.tr,
                           imagePath: themeController.isDark
                               ? 'assets/menue_icon/notificationDark.png'
@@ -119,6 +124,7 @@ class ProfileView extends StatelessWidget {
                       GetBuilder<AppThemeViewModel>(
                         init: Get.find<AppThemeViewModel>(),
                         builder: (themeController) => CustomeListTile(
+                            themeController: themeController,
                             text: 'Theme'.tr,
                             imagePath: themeController.isDark
                                 ? 'assets/menue_icon/themeDark.png'
@@ -135,6 +141,7 @@ class ProfileView extends StatelessWidget {
                                 isExpanded: true,
                                 alignment: AlignmentDirectional.centerStart,
                                 icon: Icon(
+                                  size: 30,
                                   Icons.navigate_next,
                                   color: themeController.isDark
                                       ? Colors.white70
@@ -147,10 +154,12 @@ class ProfileView extends StatelessWidget {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: [
-                                        CustomText(
-                                          text: 'Dark'.tr,
-                                        ),
+                                        Text('Dark'.tr,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyMedium),
                                         Icon(
+                                          size: 30,
                                           Icons.navigate_next,
                                           color: themeController.isDark
                                               ? Colors.white70
@@ -165,10 +174,12 @@ class ProfileView extends StatelessWidget {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: [
-                                        CustomText(
-                                          text: 'Light'.tr,
-                                        ),
+                                        Text('Light'.tr,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyMedium),
                                         Icon(
+                                          size: 30,
                                           Icons.navigate_next,
                                           color: themeController.isDark
                                               ? Colors.white70
@@ -193,6 +204,7 @@ class ProfileView extends StatelessWidget {
                       GetBuilder<AppLanguageViewModel>(
                         init: Get.find<AppLanguageViewModel>(),
                         builder: (controller) => CustomeListTile(
+                            themeController: themeController,
                             text: 'Language'.tr,
                             imagePath: themeController.isDark
                                 ? 'assets/menue_icon/languageDark.png'
@@ -209,6 +221,7 @@ class ProfileView extends StatelessWidget {
                                 isExpanded: true,
                                 alignment: AlignmentDirectional.centerStart,
                                 icon: Icon(
+                                  size: 30,
                                   Icons.navigate_next,
                                   color: themeController.isDark
                                       ? Colors.white70
@@ -221,10 +234,12 @@ class ProfileView extends StatelessWidget {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        const CustomText(
-                                          text: 'English',
-                                        ),
+                                        Text('English',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyMedium),
                                         Icon(
+                                          size: 30,
                                           Icons.navigate_next,
                                           color: themeController.isDark
                                               ? Colors.white70
@@ -239,10 +254,12 @@ class ProfileView extends StatelessWidget {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        const CustomText(
-                                          text: 'العربية',
-                                        ),
+                                        Text('العربية',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyMedium),
                                         Icon(
+                                          size: 30,
                                           Icons.navigate_next,
                                           color: themeController.isDark
                                               ? Colors.white70
@@ -263,6 +280,7 @@ class ProfileView extends StatelessWidget {
                             onPressed: () {}),
                       ),
                       CustomeListTile(
+                          themeController: themeController,
                           text: 'Log Out'.tr,
                           imagePath: themeController.isDark
                               ? 'assets/menue_icon/logoutDark.png'

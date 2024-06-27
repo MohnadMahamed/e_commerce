@@ -125,7 +125,9 @@ class EditProfileBottomSheetWidget extends StatelessWidget {
                                     : AppColors.mainAppColors,
                                 text: 'Update'.tr,
                                 onPressed: () {
-                                  controller.updateUserData();
+                                  controller.updateUserData().then((onValue) {
+                                    Navigator.pop(context);
+                                  });
                                 }),
                           ],
                         ),

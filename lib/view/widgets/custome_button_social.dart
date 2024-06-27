@@ -25,7 +25,7 @@ class CustomeButtonSocial extends StatelessWidget {
         child: Row(
           children: [
             Image.asset(imageName),
-            const SizedBox(width: 90),
+            const SizedBox(width: 80),
             CustomText(
               text: text,
             )

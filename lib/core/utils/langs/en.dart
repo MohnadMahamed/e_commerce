@@ -19,7 +19,7 @@ const Map<String, String> en = {
   'Account': 'Account',
 
   //// Home Page  ////
-  'Search you product': 'Search you product',
+  'Search for a product': 'Search for a product',
   'Categories': 'Categories',
   'Best Selling': 'Best Selling',
   'See all': 'See all',

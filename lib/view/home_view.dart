@@ -40,11 +40,10 @@ class HomeView extends StatelessWidget {
                                   onTap: () {
                                     controller.changeAppTheme();
                                   },
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(50.0),
-                                    child: Container(
-                                        child: _searchTextFormField()),
-                                  ))),
+                                  child: Container(
+                                      child: _searchTextFormField(
+                                          context: context,
+                                          isDark: controller.isDark)))),
                           const SizedBox(
                             height: 30.0,
                           ),
@@ -80,6 +79,9 @@ class HomeView extends StatelessWidget {
                             height: 20.0,
                           ),
                           _listViewProducts(),
+                          const SizedBox(
+                            height: 30.0,
+                          ),
                         ],
                       ),
                     ),
@@ -129,17 +131,24 @@ class HomeView extends StatelessWidget {
     );
   }
 
-  Widget _searchTextFormField() {
+  Widget _searchTextFormField(
+      {required BuildContext context, required bool isDark}) {
     return Container(
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.0), color: Colors.white),
       child: TextFormField(
         decoration: InputDecoration(
           border: InputBorder.none,
-          hintText: 'Search you product'.tr,
-          prefixIcon: const Icon(
-            Icons.search,
-            color: Colors.black,
+          hintText: 'Search for a product'.tr,
+          hintStyle: isDark
+              ? const TextStyle(color: Colors.black, fontSize: 18.0)
+              : Theme.of(context).textTheme.bodyMedium,
+          prefixIcon: const Padding(
+            padding: EdgeInsets.only(top: 8.0),
+            child: Icon(
+              Icons.search,
+              color: Colors.black,
+            ),
           ),
         ),
       ),
@@ -232,13 +241,13 @@ class HomeView extends StatelessWidget {
                               productId: documentSnapshot['productId']));
                         },
                         child: SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.6,
+                          width: MediaQuery.of(context).size.width * 0.7,
                           child: Stack(
                             children: [
                               Column(
                                 children: [
                                   const SizedBox(
-                                    height: 90.0,
+                                    height: 80.0,
                                   ),
                                   Expanded(
                                     child: Container(
@@ -246,7 +255,7 @@ class HomeView extends StatelessWidget {
                                       decoration: BoxDecoration(
                                         borderRadius:
                                             BorderRadius.circular(10.0),
-                                        color: Colors.green.withOpacity(.3),
+                                        color: Colors.green.withOpacity(.2),
                                       ),
                                       child: Column(
                                         children: [
@@ -255,7 +264,7 @@ class HomeView extends StatelessWidget {
                                           ),
                                           Padding(
                                             padding: const EdgeInsets.symmetric(
-                                                horizontal: 8.0),
+                                                horizontal: 15.0),
                                             child: CustomText(
                                               text: documentSnapshot['name'],
                                               fontSize: 20.0,
@@ -267,7 +276,7 @@ class HomeView extends StatelessWidget {
                                           ),
                                           Padding(
                                             padding: const EdgeInsets.symmetric(
-                                                horizontal: 8.0),
+                                                horizontal: 15.0),
                                             child: SizedBox(
                                               height: 30.0,
                                               child: CustomText(
@@ -304,13 +313,13 @@ class HomeView extends StatelessWidget {
                               Align(
                                 alignment: Alignment.topCenter,
                                 child: CircleAvatar(
-                                  radius: 70.0,
+                                  radius: 60.0,
                                   backgroundColor: Colors.white,
                                   child: Padding(
                                     padding: const EdgeInsets.all(10.0),
                                     child: Container(
-                                        height: 130.0,
-                                        width: 130,
+                                        height: 100.0,
+                                        width: 100,
                                         clipBehavior: Clip.antiAlias,
                                         // padding: const EdgeInsets.all(0.0),
                                         decoration: BoxDecoration(

@@ -1,8 +1,11 @@
 import 'package:e_commerce/core/theme/app_colors.dart';
 import 'package:e_commerce/core/view_model/app_theme.dart';
+import 'package:e_commerce/core/view_model/cart_view_model.dart';
 import 'package:e_commerce/core/view_model/checkout_view_model.dart';
+import 'package:e_commerce/core/view_model/payment_view_model.dart';
 import 'package:e_commerce/helper/enum.dart';
 import 'package:e_commerce/view/control_view.dart';
+import 'package:e_commerce/view/payment/payment_toggle_screen.dart';
 import 'package:e_commerce/view/widgets/custome_button.dart';
 import 'package:e_commerce/view/widgets/custome_static_color_text.dart';
 import 'package:e_commerce/view/widgets/custome_text.dart';
@@ -122,34 +125,57 @@ class CheckOutScreen extends StatelessWidget {
                         padding: const EdgeInsets.all(20.0),
                         width: 170.0,
                         height: 100.0,
-                        child: CustomeButton(
-                          text:
-                              controller.index == 2 ? 'CHECKOUT'.tr : 'NEXT'.tr,
-                          onPressed: () {
-                            if (controller.index == 1) {
-                              controller.formState.currentState!.save();
-                              if (controller.formState.currentState!
-                                  .validate()) {
-                                if (controller.index < controller.upperBound) {
-                                  controller.incrementIndex();
-                                  debugPrint(controller.index.toString());
-                                }
-                              }
-                            } else if (controller.index == 0) {
-                              controller.incrementIndex();
+                        child: GetBuilder<PaymentViewModel>(
+                          init: PaymentViewModel(),
+                          builder: (paymentController) => GetBuilder<
+                                  CartViewModel>(
+                              init: CartViewModel(),
+                              builder: (cartViewModelController) {
+                                return CustomeButton(
+                                  text: controller.index == 2
+                                      ? 'CHECKOUT'.tr
+                                      : 'NEXT'.tr,
+                                  onPressed: () {
+                                    if (controller.index == 1) {
+                                      controller.formState.currentState!.save();
+                                      if (controller.formState.currentState!
+                                          .validate()) {
+                                        if (controller.index <
+                                            controller.upperBound) {
+                                          controller.incrementIndex();
+                                          debugPrint(
+                                              controller.index.toString());
+                                        }
+                                      }
+                                    } else if (controller.index == 0) {
+                                      controller.incrementIndex();
 
-                              // Get.to(ControlView());
-                            } else {
-                              Get.to(() => const ControlView());
-                              controller.goodBye();
-                              // controller.index = 0;
-                              debugPrint(
-                                  '---------------Finsh-------------------');
-                            }
-                          },
+                                      // Get.to(ControlView());
+                                    } else {
+                                      paymentController.getOrderReqisterationId(
+                                          firstName: 'firstName',
+                                          lastName: 'lastName',
+                                          email: 'email',
+                                          phone: 'phone',
+                                          price: cartViewModelController
+                                              .totalPrice
+                                              .toString());
+                                      paymentController.loading.value
+                                          ? Get.to(() => const ToggleScreen())
+                                          : null;
+
+                                      // Get.to(() => const ControlView());
+                                      // controller.goodBye();
+                                      // controller.index = 0;
+                                      debugPrint(
+                                          '---------------Finsh-------------------');
+                                    }
+                                  },
+                                );
+                              }),
                         ),
                       ),
-                    ),
+                    )
                   ],
                 ),
               ],
